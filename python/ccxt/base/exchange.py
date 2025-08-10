@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Base exchange class"""
+import secrets
 
 # -----------------------------------------------------------------------------
 
@@ -70,7 +71,6 @@ import hmac
 import io
 import json
 import math
-import random
 from numbers import Number
 import re
 from requests import Session
@@ -810,11 +810,11 @@ class Exchange(object):
 
     @staticmethod
     def uuid22(length=22):
-        return format(random.getrandbits(length * 4), 'x')
+        return format(secrets.SystemRandom().getrandbits(length * 4), 'x')
 
     @staticmethod
     def uuid16(length=16):
-        return format(random.getrandbits(length * 4), 'x')
+        return format(secrets.SystemRandom().getrandbits(length * 4), 'x')
 
     @staticmethod
     def uuid():
